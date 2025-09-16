@@ -6,6 +6,7 @@ using PromoCodeFactory.Core.Abstractions.Repositories;
 using PromoCodeFactory.Core.Domain.Administration;
 using PromoCodeFactory.DataAccess.Data;
 using PromoCodeFactory.DataAccess.Repositories;
+using WebAPI.Filters;
 
 namespace PromoCodeFactory.WebHost
 {
@@ -21,6 +22,11 @@ namespace PromoCodeFactory.WebHost
             {
                 options.Title = "PromoCode Factory API Doc";
                 options.Version = "1.0";
+            });
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<CustomExceptionFilter>();
             });
         }
 
