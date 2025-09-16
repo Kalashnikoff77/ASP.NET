@@ -16,12 +16,9 @@ namespace PromoCodeFactory.WebHost.Controllers
     [Route("api/v1/[controller]")]
     public class EmployeesController(IRepository<Employee> _employeeRepository) : ControllerBase
     {
-        //private readonly IRepository<Employee> _employeeRepository;
-
         /// <summary>
         /// Получить данные всех сотрудников
         /// </summary>
-        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult> GetEmployeesAsync()
         {
@@ -41,7 +38,6 @@ namespace PromoCodeFactory.WebHost.Controllers
         /// <summary>
         /// Получить данные сотрудника по Id
         /// </summary>
-        /// <returns></returns>
         [HttpGet("{id:guid}")]
         public async Task<ActionResult> GetEmployeeByIdAsync(Guid id)
         {
@@ -66,7 +62,9 @@ namespace PromoCodeFactory.WebHost.Controllers
             return Ok(employeeModel);
         }
 
-
+        /// <summary>
+        /// Обновить данные сотрудника
+        /// </summary>
         [HttpPut]
         public async Task<ActionResult> UpdateAsync(Employee employee)
         {
@@ -83,7 +81,9 @@ namespace PromoCodeFactory.WebHost.Controllers
             return Ok();
         }
 
-
+        /// <summary>
+        /// Добавить сотрудника
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult> AddAsync(Employee employee)
         {
@@ -92,7 +92,9 @@ namespace PromoCodeFactory.WebHost.Controllers
             return Ok(result);
         }
 
-
+        /// <summary>
+        /// Удалить сотрудника
+        /// </summary>
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> DeleteAsync(Guid id)
         {
